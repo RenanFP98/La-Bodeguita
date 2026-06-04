@@ -1,0 +1,8 @@
+package com.reposiciones.feign;
+// El nombre debe ser igual a como llamamos al microservicio de productos
+@FeignClient(name = "servicio-productos") 
+public interface ProductoClient {
+
+    @GetMapping("/api/productos/{id}")
+    ProductoDTO obtenerProductoPorId(@PathVariable("id") Integer id);
+}

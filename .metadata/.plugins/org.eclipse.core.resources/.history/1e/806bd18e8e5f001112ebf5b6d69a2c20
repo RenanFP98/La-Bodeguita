@@ -1,0 +1,9 @@
+package com.productos.feign;
+
+@FeignClient(name = "servicio-proveedores")
+public interface ProveedorClient {
+    
+    // Aquí dejaremos el espacio listo para traer la info del proveedor
+    @GetMapping("/api/proveedores/{id}")
+    Object obtenerProveedorPorId(@PathVariable("id") Integer id);
+}

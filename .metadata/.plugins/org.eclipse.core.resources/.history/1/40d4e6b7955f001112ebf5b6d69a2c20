@@ -1,0 +1,74 @@
+package com.productos.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.productos.model.Producto;
+import com.productos.repository.IProductoRepository;
+
+@Service
+public class ProductoService {
+
+    @Autowired
+    private IProductoRepository productoRepository;
+
+    // --- CRUD BÁSICO ---
+
+    public Producto guardarProducto(Producto producto) {
+        return productoRepository.save(producto);
+    }
+
+    public Producto actualizarProducto(Integer id, Producto productoActualizado) {
+        return productoRepository.findById(id).map(producto -> {
+            producto.setNomProd(productoActualizado.getNomProd());
+            producto.setStockMax(productoActualizado.getStockMax());
+            producto.setStockMin(productoActualizado.getStockMin());
+            producto.setStockActual(productoActualizado.getStockActual());
+            producto.setPrecioUnit(productoActualizado.getPrecioUnit());
+            producto.setCategoria(productoActualizado.getCategoria());
+            producto.setIdProv(productoActualizado.getIdProv());
+            return productoRepository.save(producto);
+        }).orElse(null); // Si no lo encuentra, retorna null
+    }
+
+    // ELIMINADO LÓGICO (Con mucha delicadeza, solo cambiamos su estado)
+    public boolean eliminarLogicoProducto(Integer id) {
+        Optional<Producto> productoOpt = productoRepository.findById(id);
+        if (productoOpt.isPresent()) {
+            Producto producto = productoOpt.get();
+            producto.setEstadoProd(false); // Lo desactivamos
+            productoRepository.save(producto);
+            return true;
+        }
+        return false;
+    }
+
+    // --- MÉTODOS DE LISTADO (Según tu imagen) ---
+
+    public List<Producto> listarTodos() {
+        return productoRepository.findAll();
+    }
+
+    public Optional<Producto> listarPorId(Integer id) {
+        return productoRepository.findById(id);
+    }
+
+    public List<Producto> listarPorNombre(String nombre) {
+        return productoRepository.findByNomProdContainingIgnoreCase(nombre);
+    }
+
+    public List<Producto> listarPorEstado(Boolean estado) {
+        return productoRepository.findByEstadoProd(estado);
+    }
+
+    public List<Producto> listarAscendente() {
+        return productoRepository.findByOrderByNomProdAsc();
+    }
+
+    public List<Producto> listarDescendente() {
+        return productoRepository.findByOrderByNomProdDesc();
+    }
+}

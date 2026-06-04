@@ -1,0 +1,5 @@
+package com.productos.model;
+
+public class Categoria {
+
+}

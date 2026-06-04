@@ -1,0 +1,13 @@
+package com.productos.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name = "servicio-proveedores")
+public interface ProveedorClient {
+    
+    // Aquí dejaremos el espacio listo para traer la info del proveedor
+    @GetMapping("/api/proveedores/{id}")
+    Object obtenerProveedorPorId(@PathVariable("id") Integer id);
+}

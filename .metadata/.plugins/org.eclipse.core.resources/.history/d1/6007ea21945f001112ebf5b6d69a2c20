@@ -1,0 +1,5 @@
+package com.proveedores.model;
+
+public class Proveedor {
+
+}

@@ -1,0 +1,19 @@
+package com.reposiciones.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ReposicionRepository extends JpaRepository<Reposicion, Integer> {
+
+    List<Reposicion> findByIdProd(Integer idProd);
+    
+    List<Reposicion> findByIdProv(Integer idProv);
+    
+    List<Reposicion> findByIdUsuario(Integer idUsuario);
+    
+    List<Reposicion> findByEstadoRepo(Boolean estadoRepo);
+    
+    List<Reposicion> findAllByOrderByIdReposAsc();
+    
+    List<Reposicion> findAllByOrderByIdReposDesc();
+}

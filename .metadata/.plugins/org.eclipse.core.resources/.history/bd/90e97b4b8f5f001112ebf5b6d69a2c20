@@ -1,0 +1,5 @@
+package com.productos.service;
+
+public class CategoriaService {
+
+}

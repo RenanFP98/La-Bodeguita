@@ -1,0 +1,5 @@
+package com.reposiciones.repository;
+
+public interface IReposicionRepository {
+
+}

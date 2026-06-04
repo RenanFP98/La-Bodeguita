@@ -1,0 +1,5 @@
+package com.empleados.repository;
+
+public interface IRolRepository {
+
+}

@@ -1,0 +1,5 @@
+package com.productos.feign;
+
+public class ProveedorClient {
+
+}

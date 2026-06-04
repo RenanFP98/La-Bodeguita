@@ -1,0 +1,5 @@
+package com.reposiciones.dto;
+
+public class ProductoDTO {
+
+}
