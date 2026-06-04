@@ -1,5 +1,0 @@
-package com.productos.repository;
-
-public interface IProductoRepository {
-
-}

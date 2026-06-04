@@ -1,5 +1,0 @@
-package com.empleados.repository;
-
-public interface IEmpleadoRepository {
-
-}

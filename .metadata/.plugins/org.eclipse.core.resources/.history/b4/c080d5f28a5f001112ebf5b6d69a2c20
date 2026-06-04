@@ -1,5 +1,0 @@
-spring.application.name=productos-service
-server.port=8081
-
-# Configuración de Eureka (el puerto 8761 que les dio el profesor)
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka/

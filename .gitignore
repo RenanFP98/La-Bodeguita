@@ -1,0 +1,14 @@
+# Ignorar carpetas de compilación de Maven o Gradle
+target/
+build/
+.gradle/
+
+# Ignorar archivos de los IDEs (Eclipse, IntelliJ, VS Code)
+.idea/
+*.iml
+.vscode/
+.metadata/
+
+# Ignorar variables de entorno o archivos del sistema
+.env
+.DS_Store

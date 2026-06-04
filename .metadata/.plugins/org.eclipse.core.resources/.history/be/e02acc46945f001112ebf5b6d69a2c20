@@ -1,5 +1,0 @@
-package com.proveedores.repository;
-
-public interface IProveedorRepository {
-
-}
